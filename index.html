@@ -2,243 +2,135 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💱 Обменник Payeer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KZ Exchange — Быстрый обмен в Казахстане</title>
 <style>
-    * { box-sizing: border-box; }
-
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-        background: linear-gradient(135deg, #4158D0, #C850C0, #FFCC70);
-        background-size: 300% 300%;
-        animation: gradient 10s ease infinite;
-        color: #333;
-    }
-
-    @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .container {
-        max-width: 500px;
-        margin: 70px auto;
-        background: white;
-        border-radius: 16px;
-        padding: 30px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        transition: 0.4s;
-        animation: fadeIn 0.6s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-        text-align: center;
-        color: #4158D0;
-        margin-bottom: 25px;
-    }
-
-    label {
-        display: block;
-        margin-top: 15px;
-        font-weight: 600;
-        color: #444;
-    }
-
-    select, input {
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        margin-top: 5px;
-        transition: 0.3s;
-    }
-
-    input:focus, select:focus {
-        border-color: #4158D0;
-        box-shadow: 0 0 5px rgba(65,88,208,0.3);
-        outline: none;
-    }
-
-    button {
-        width: 100%;
-        background: linear-gradient(135deg, #4158D0, #C850C0);
-        color: white;
-        border: none;
-        padding: 14px;
-        border-radius: 10px;
-        font-size: 17px;
-        font-weight: 600;
-        margin-top: 25px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(65,88,208,0.4);
-    }
-
-    .hidden { display: none; }
-
-    .result-box {
-        margin-top: 15px;
-        background: #eef3ff;
-        padding: 12px;
-        border-radius: 10px;
-        font-weight: 600;
-        text-align: center;
-        color: #333;
-    }
-
-    .alert-box {
-        text-align: center;
-        padding: 25px;
-    }
-
-    .alert-box h2 {
-        color: #4158D0;
-        margin-bottom: 10px;
-    }
-
-    .alert-box p {
-        color: #444;
-        font-size: 15px;
-    }
-
-    .success {
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .success h2 {
-        color: #28a745;
-        margin-bottom: 15px;
-    }
+  :root{
+    --blue:#007bff;
+    --gold:#f9c80e;
+    --bg:#f3f6fb;
+    --card:#fff;
+    --text:#0f1724;
+  }
+  *{box-sizing:border-box;font-family:'Inter',sans-serif}
+  body{margin:0;background:var(--bg);color:var(--text);}
+  header{background:linear-gradient(90deg,var(--blue),#0099ff);color:#fff;padding:20px;text-align:center;}
+  header h1{margin:0;font-size:24px;}
+  header p{margin:4px 0 0;font-size:15px;}
+  main{max-width:900px;margin:30px auto;padding:20px;}
+  .card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+  h2{margin-top:0;color:var(--blue);}
+  .row{display:flex;gap:12px;flex-wrap:wrap;}
+  .col{flex:1;min-width:260px;}
+  label{display:block;margin-bottom:6px;color:#555;font-size:14px;}
+  input,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:15px;}
+  .btn{background:var(--blue);color:#fff;border:none;padding:12px 18px;border-radius:10px;cursor:pointer;font-weight:600;}
+  .btn:hover{background:#0066d1;}
+  .summary{margin-top:16px;background:#f8fbff;border-radius:10px;padding:12px;border:1px solid #e4e9f0;}
+  footer{margin-top:40px;padding:20px;background:#0f1724;color:#fff;text-align:center;}
+  footer a{color:var(--gold);text-decoration:none;margin:0 10px;}
+  footer a:hover{text-decoration:underline;}
+  .socials{margin-top:8px;}
+  .socials img{width:24px;height:24px;vertical-align:middle;margin:0 5px;}
 </style>
 </head>
 <body>
+<header>
+  <h1>KZ Exchange</h1>
+  <p>Надёжный обмен электронных средств в Казахстане 🇰🇿</p>
+</header>
 
-<div class="container" id="page1">
-    <h1>💱 Обменник</h1>
-    <label>Откуда:</label>
-    <select id="from">
-        <option>Payeer</option>
-        <option>Bitcoin</option>
-        <option>USDT (TRC20)</option>
-        <option>Qiwi</option>
+<main>
+  <div class="card">
+    <h2>Выберите направление обмена</h2>
+    <select id="direction">
+      <option value="Kaspi → Карта KZ">Kaspi → Карта KZ</option>
+      <option value="Payeer → Карта KZ">Payeer → Карта KZ</option>
+      <option value="Binance → Карта KZ">Binance → Карта KZ</option>
     </select>
 
-    <label>Куда:</label>
-    <select id="to">
-        <option>Карта РФ</option>
-        <option>Kaspi Bank (KZ)</option>
-        <option>Payeer</option>
-    </select>
-
-    <button onclick="nextPage()">Продолжить</button>
-</div>
-
-<div class="container hidden" id="page2">
-    <h1 id="directionTitle">Обмен</h1>
-
-    <label>Имя получателя:</label>
-    <input type="text" id="fname" placeholder="Иван">
-
-    <label>Фамилия получателя:</label>
-    <input type="text" id="lname" placeholder="Иванов">
-
-    <label>Номер карты:</label>
-    <input type="text" id="card" placeholder="0000 0000 0000 0000">
-
-    <label>Банк:</label>
-    <select id="bank">
-        <option>Сбербанк</option>
-        <option>Тинькофф</option>
-        <option>ВТБ</option>
-        <option>Альфа-Банк</option>
-        <option>Газпромбанк</option>
-    </select>
-
-    <label>Введите сумму (₽):</label>
-    <input type="number" id="amount" placeholder="Например: 1000" oninput="calc()">
-
-    <div class="result-box" id="result">На карту поступит: —</div>
-
-    <button onclick="showPay()">Оплатить</button>
-</div>
-
-<div class="container hidden" id="page3">
-    <div class="alert-box">
-        <h2>⚠ Внимание</h2>
-        <p>В связи с последними ограничениями автоматические переводы временно недоступны.</p>
-        <p><b>Пожалуйста, переведите сумму вручную на Payeer:</b><br>
-        <span style="color:#4158D0;font-size:18px;">P1135204516</span></p>
-        <p>После перевода нажмите на кнопку ниже и ожидайте поступления средств на карту.</p>
-        <button onclick="success()">Я перевёл</button>
+    <div style="margin-top:16px;" class="row">
+      <div class="col">
+        <label>Номер карты получателя</label>
+        <input id="cardNumber" placeholder="4400 0000 0000 0000" maxlength="23">
+      </div>
+      <div class="col">
+        <label>Имя и фамилия получателя</label>
+        <input id="recipientName" placeholder="Алия Калдыбаева">
+      </div>
     </div>
-</div>
 
-<div class="container hidden" id="page4">
-    <div class="success">
-        <h2>✅ Заявка принята!</h2>
-        <p>Ваш перевод будет проверен оператором.<br>
-        Средства поступят на карту в течение 5–30 минут.</p>
-        <button onclick="reload()">Сделать новый обмен</button>
+    <div style="margin-top:16px;" class="row">
+      <div class="col">
+        <label>Сумма (KZT)</label>
+        <input id="amount" type="number" min="100" step="0.01" placeholder="10000">
+      </div>
+      <div class="col">
+        <label>Комиссия (7%)</label>
+        <input id="commission" readonly>
+      </div>
     </div>
-</div>
+
+    <div class="summary">
+      К получению: <strong id="toReceive">0.00</strong> ₸
+    </div>
+
+    <div style="margin-top:20px;text-align:right;">
+      <button class="btn" id="payBtn">Перейти к оплате</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div>© 2025 KZ Exchange — Все права защищены</div>
+  <div class="socials">
+    <a href="https://t.me/kzexchange" target="_blank">Telegram</a> |
+    <a href="mailto:support@kzexchange.kz">Email</a> |
+    <a href="https://instagram.com/kzexchange" target="_blank">Instagram</a>
+  </div>
+  <div style="margin-top:6px;">Контакты: +7 (700) 123-45-67</div>
+</footer>
 
 <script>
-function nextPage() {
-    const from = document.getElementById('from').value;
-    const to = document.getElementById('to').value;
-    document.getElementById('directionTitle').textContent = `${from} → ${to}`;
-    document.getElementById('page1').classList.add('hidden');
-    document.getElementById('page2').classList.remove('hidden');
-}
+const COMMISSION = 0.07;
+const amountInput = document.getElementById('amount');
+const commissionInput = document.getElementById('commission');
+const toReceive = document.getElementById('toReceive');
+const payBtn = document.getElementById('payBtn');
+const cardInput = document.getElementById('cardNumber');
 
-function calc() {
-    const amount = parseFloat(document.getElementById('amount').value);
-    const resultBox = document.getElementById('result');
-    if (!amount || amount <= 0) {
-        resultBox.textContent = "На карту поступит: —";
-        return;
-    }
-    const received = (amount * 0.93).toFixed(2);
-    resultBox.textContent = `На карту поступит: ${received} ₽ (комиссия 7%)`;
-}
+cardInput.addEventListener('input',()=>{
+  cardInput.value = cardInput.value
+    .replace(/\D/g,'')
+    .replace(/(.{4})/g,'$1 ')
+    .trim();
+});
 
-function showPay() {
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const card = document.getElementById('card').value.trim();
-    const amount = document.getElementById('amount').value.trim();
+amountInput.addEventListener('input',()=>{
+  const amount = parseFloat(amountInput.value)||0;
+  const fee = amount * COMMISSION;
+  const receive = amount - fee;
+  commissionInput.value = fee.toFixed(2)+' ₸';
+  toReceive.textContent = receive.toFixed(2);
+});
 
-    if (!fname || !lname || !card || !amount) {
-        alert("Пожалуйста, заполните все поля перед оплатой.");
-        return;
-    }
-
-    document.getElementById('page2').classList.add('hidden');
-    document.getElementById('page3').classList.remove('hidden');
-}
-
-function success() {
-    document.getElementById('page3').classList.add('hidden');
-    document.getElementById('page4').classList.remove('hidden');
-}
-
-function reload() {
-    location.reload();
-}
+payBtn.addEventListener('click',()=>{
+  const direction = document.getElementById('direction').value;
+  const card = cardInput.value.trim();
+  const name = document.getElementById('recipientName').value.trim();
+  const amount = parseFloat(amountInput.value);
+  if(card.length<16){alert('Введите корректный номер карты');return;}
+  if(name.length<3){alert('Введите имя получателя');return;}
+  if(!amount||amount<100){alert('Введите сумму от 100 ₸');return;}
+  alert(
+    'Направление: '+direction+
+    '\nНомер карты: '+card+
+    '\nИмя: '+name+
+    '\nСумма: '+amount.toFixed(2)+' ₸'+
+    '\n\nДля завершения переведите средства вручную на Payeer кошелёк: P1135166414'
+  );
+});
 </script>
-
 </body>
 </html>
+

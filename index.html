@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Обменник PAYEER → Карта РФ | Надёжный обмен</title>
+<title>💱 Обменник PAYEER → Карта РФ</title>
 <style>
     * { box-sizing: border-box; }
     body {
@@ -92,15 +92,53 @@
     .alert-box h3 { color: #1d47d6; }
     .success h2 { color: #2ea84a; }
 
-    /* Отзывы */
-    .reviews {
-        margin-top: 40px;
-        background: #f9f9ff;
-        border-radius: 12px;
-        padding: 20px;
+    /* Футер */
+    footer {
+        background: #1d47d6;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 50px;
+    }
+    footer button {
+        background: white;
+        color: #1d47d6;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    footer button:hover {
+        background: #f0f0f0;
+    }
+    .socials {
+        margin-top: 10px;
+    }
+    .socials a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+    .socials a:hover {
+        color: #ffcc70;
+    }
+
+    /* Раздел отзывов */
+    #reviews {
+        max-width: 700px;
+        background: white;
+        margin: 40px auto;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
     }
     .review {
-        background: white;
+        background: #f9f9ff;
         border-radius: 10px;
         padding: 15px;
         margin-bottom: 15px;
@@ -120,9 +158,10 @@
 
 <header>💱 Обмен PAYEER → Карта РФ</header>
 
+<!-- Шаг 1 -->
 <main id="step1">
-    <h2>Быстрый и надёжный обмен</h2>
-    <p class="desc">Мгновенные переводы, реальная комиссия 7%, поддержка 24/7</p>
+    <h2>Надёжный обмен без задержек</h2>
+    <p class="desc">Комиссия — всего 7%. Перевод от 5 до 30 минут.</p>
 
     <label>Откуда:</label>
     <select id="from">
@@ -140,30 +179,12 @@
     </select>
 
     <button onclick="next()">Продолжить</button>
-
-    <div class="reviews">
-        <h3 style="text-align:center; color:#333;">💬 Отзывы клиентов</h3>
-        <div class="review">
-            <div class="stars">★★★★★</div>
-            <strong>Андрей М.</strong> — <i>Москва</i><br>
-            Всё прошло отлично! Деньги пришли за 10 минут. Комиссия честная.
-        </div>
-        <div class="review">
-            <div class="stars">★★★★★</div>
-            <strong>Светлана Р.</strong> — <i>Казань</i><br>
-            Удобный сайт, приятный интерфейс. Поддержка быстро ответила в Telegram.
-        </div>
-        <div class="review">
-            <div class="stars">★★★★☆</div>
-            <strong>Игорь В.</strong> — <i>СПб</i><br>
-            Всё ок, только хотелось бы чуть быстрее проверку. В остальном — отлично.
-        </div>
-    </div>
 </main>
 
+<!-- Шаг 2 -->
 <main id="step2" class="hidden">
     <h2 id="directionTitle"></h2>
-    <p class="desc">Введите данные получателя для перевода</p>
+    <p class="desc">Введите данные получателя</p>
 
     <label>Имя:</label>
     <input id="fname" placeholder="Иван">
@@ -191,25 +212,62 @@
     <button onclick="toPayment()">Оплатить</button>
 </main>
 
+<!-- Шаг 3 -->
 <main id="step3" class="hidden">
     <div class="alert-box">
         <h3>⚠ Важно!</h3>
         <p>Из-за ограничений автоматические переводы временно недоступны.</p>
         <p>Переведите вручную на Payeer:</p>
         <p style="font-size:18px; color:#1d47d6;"><b>P1135166414</b></p>
-        <p>После отправки нажмите на кнопку ниже и ожидайте поступления.</p>
+        <p>После отправки нажмите кнопку ниже.</p>
         <button onclick="confirm()">Я перевёл</button>
     </div>
 </main>
 
+<!-- Шаг 4 -->
 <main id="step4" class="hidden">
     <div class="success">
         <h2>✅ Заявка принята!</h2>
-        <p>Ваш перевод ожидает подтверждения оператором.<br>
+        <p>Ваш перевод проверяется оператором.<br>
         Средства поступят в течение 5–30 минут.</p>
         <button onclick="restart()">Новый обмен</button>
     </div>
 </main>
+
+<!-- Раздел отзывов -->
+<section id="reviews" class="hidden">
+    <h2>Отзывы клиентов</h2>
+    <div class="review">
+        <div class="stars">★★★★★</div>
+        <strong>Андрей М.</strong> — Москва<br>
+        Всё прошло отлично, обмен за 10 минут. Надёжно!
+    </div>
+    <div class="review">
+        <div class="stars">★★★★★</div>
+        <strong>Светлана Р.</strong> — Казань<br>
+        Отличный интерфейс, быстро, поддержка помогла.
+    </div>
+    <div class="review">
+        <div class="stars">★★★★☆</div>
+        <strong>Игорь В.</strong> — СПб<br>
+        Всё хорошо, немного подождал подтверждения.
+    </div>
+    <button onclick="hideReviews()">Назад</button>
+</section>
+
+<!-- Футер -->
+<footer>
+    <div>
+        <button onclick="showReviews()">Отзывы</button>
+        <button onclick="support()">Тех. поддержка</button>
+    </div>
+    <div class="socials">
+        <a href="#" title="Telegram">📱</a>
+        <a href="#" title="VK">🌐</a>
+        <a href="#" title="YouTube">▶️</a>
+    </div>
+    <p style="margin-top:8px; font-size:13px; opacity:0.8;">© 2025 Обмен PAYEER. Все права защищены.</p>
+</footer>
 
 <script>
 function next() {
@@ -219,7 +277,6 @@ function next() {
     document.getElementById('step2').classList.remove('hidden');
     document.getElementById('directionTitle').textContent = `${from} → ${to}`;
 }
-
 function calc() {
     const amount = parseFloat(document.getElementById('amount').value);
     const result = document.getElementById('result');
@@ -230,7 +287,6 @@ function calc() {
     const sum = (amount * 0.93).toFixed(2);
     result.textContent = `На карту поступит: ${sum} ₽ (комиссия 7%)`;
 }
-
 function toPayment() {
     const fname = document.getElementById('fname').value.trim();
     const lname = document.getElementById('lname').value.trim();
@@ -243,17 +299,26 @@ function toPayment() {
     document.getElementById('step2').classList.add('hidden');
     document.getElementById('step3').classList.remove('hidden');
 }
-
 function confirm() {
     document.getElementById('step3').classList.add('hidden');
     document.getElementById('step4').classList.remove('hidden');
 }
-
-function restart() {
-    location.reload();
+function restart() { location.reload(); }
+function showReviews() {
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.add('hidden');
+    document.getElementById('step4').classList.add('hidden');
+    document.getElementById('reviews').classList.remove('hidden');
+}
+function hideReviews() {
+    document.getElementById('reviews').classList.add('hidden');
+    document.getElementById('step1').classList.remove('hidden');
+}
+function support() {
+    alert("🧰 Тех. поддержка\n\nTelegram: @support_exchange\nEmail: support@payeer-exchange.ru\n\nРаботаем 24/7");
 }
 </script>
-
 </body>
 </html>
 
